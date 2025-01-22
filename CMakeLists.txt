@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 project(hermes_shm)
-
+include(CTest)
 set(CMAKE_CXX_STANDARD 17)
 
 #------------------------------------------------------------------------------
@@ -15,23 +15,23 @@ include_directories(${HERMES_SHM_ROOT}/include)
 #------------------------------------------------------------------------------
 # Options
 #------------------------------------------------------------------------------
-option(BUILD_SHARED_LIBS "Build shared libraries (.dll/.so) instead of static ones (.lib/.a)" ON)
-option(BUILD_HSHM_TESTS "Build tests" ON)
-option(BUILD_HSHM_BENCHMARKS "Build benchmarks" ON)
-option(BUILD_MPI_TESTS "Build tests which depend on MPI" ON)
-option(BUILD_OpenMP_TESTS "Build tests which depend on OpenMP" ON)
-option(BUILD_Boost_TESTS "Build tests which depend on libboost" ON)
-option(HERMES_RPC_THALLIUM "Build tests which depend on thallium" ON)
-option(HERMES_ENABLE_CEREAL "Enable serialization using cereal" ON)
+option(BUILD_SHARED_LIBS "Build shared libraries (.dll/.so) instead of static ones (.lib/.a)" OFF)
+option(BUILD_HSHM_TESTS "Build tests" OFF)
+option(BUILD_HSHM_BENCHMARKS "Build benchmarks" OFF)
+option(BUILD_MPI_TESTS "Build tests which depend on MPI" OFF)
+option(BUILD_OpenMP_TESTS "Build tests which depend on OpenMP" OFF)
+option(BUILD_Boost_TESTS "Build tests which depend on libboost" OFF)
+option(HERMES_RPC_THALLIUM "Build tests which depend on thallium" OFF)
+option(HERMES_ENABLE_CEREAL "Enable serialization using cereal" OFF)
 option(HERMES_ENABLE_COVERAGE "Check how well tests cover code" OFF)
-option(HERMES_ENABLE_DOXYGEN "Check how well the code is documented" ON)
+option(HERMES_ENABLE_DOXYGEN "Check how well the code is documented" OFF)
 option(HERMES_CXX_PROFILE "Generate profiling data from benchmarks" OFF)
-option(HERMES_PTHREADS_ENABLED "Support spawning pthreads" ON)
+option(HERMES_PTHREADS_ENABLED "Support spawning pthreads" OFF)
 option(HERMES_DEBUG_LOCK "Used for debugging locks" OFF)
 option(HERMES_ENABLE_PROFILING "View profiling logs" OFF)
 option(HERMES_ENABLE_COMPRESS "Enable compression" OFF)
 option(HERMES_ENABLE_ENCRYPT "Enable encryption" OFF)
-option(HERMES_USE_ELF "Enable ELF" ON)
+option(HERMES_USE_ELF "Enable ELF" OFF)
 
 if (HERMES_PTHREADS_ENABLED)
     add_compile_definitions(HERMES_PTHREADS_ENABLED)
